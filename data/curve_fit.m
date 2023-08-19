@@ -1,1 +1,0 @@
-data = readtable("202308011345.csv")
