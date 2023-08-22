@@ -10,9 +10,11 @@ using symbolic math package in Python  - SymPy - to calculate forward and invers
 ## Eg 1.2: Parrallel Robot
 
 # 2. Visulization
+using [yourdfpy](https://github.com/clemense/yourdfpy/tree/main) to load robot defined in [URDF format](http://wiki.ros.org/urdf/XML).
+- "data/urdf_files": contains urdf files for different robots. [Source](https://github.com/ankurhanda/robot-assets)
 ## Fn 2.1: draw robot in 2D/3D space
-using matplotlib to draw robot in 2D/3D space, can define color and link size
-- compatible with Fn 1. forward kinematics and inverse kinematics
+based on yourdfpy, draw robot in 2D/3D space with matplotlib
+
 
 # 3. Control Method
 ## Eg 3.1: Kalman Filter in Motion Tracking

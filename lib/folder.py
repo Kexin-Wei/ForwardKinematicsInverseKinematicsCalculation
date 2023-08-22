@@ -215,3 +215,43 @@ class T2FolderMg(FolderMg):
                         print(f)
             return t2List
         return []
+
+
+class URDFFolderMg(FolderMg):
+    """
+    Find all the urdf files for each robot
+    """
+
+    def __init__(self, folderFullPath: STR_OR_PATH = Path()):
+        super().__init__(folderFullPath)
+        self.urdfs = {}
+
+    def printURDFFiles(self):
+        for k, v in self.urdfs.items():
+            if isinstance(v, Path):
+                print(f"\nIn folder {k}, there is one urdf file:")
+                print(f"  - {v.name}")
+            else:
+                print(f"\nIn folder {k}, there are {len(v)} urdf files:")
+                for f in v:
+                    print(f"  - {f.name}")
+
+    def getURDFFromAllDir(self):
+        if self.nDirs:
+            for d in self.dirs:
+                urdfs = self.getURDF(d)
+                if len(urdfs):
+                    if len(urdfs) > 1:
+                        self.urdfs[d.name] = urdfs
+                    else:
+                        self.urdfs[d.name] = urdfs[0]
+
+    @staticmethod
+    def getURDF(dir):
+        urdfs = []
+        dirMg = FolderMg(dir)
+        if dirMg.nFile:
+            for f in dirMg.files:
+                if "urdf" in f.suffix.lower():
+                    urdfs.append(f)
+        return urdfs
