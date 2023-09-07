@@ -1,6 +1,6 @@
 from pathlib import Path
 from functools import partial
-from lib.folder import URDFFolderMg
+from libs.folder import URDFFolderMg
 from yourdfpy import URDF
 from yourdfpy.viz import viewer_callback, generate_joint_limit_trajectory
 
