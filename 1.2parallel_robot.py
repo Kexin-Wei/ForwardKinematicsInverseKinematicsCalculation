@@ -45,7 +45,10 @@ def test_robot():
     robot.add_joint(joint3, robot.base)
     robot.plot()
 
-    robot_struct = robot.get_node_child_to_end(joint1.name)
+    robot.add_parallel_joint(
+        "joint3", "joint2", [joint3.xn, joint3.yn], JointType.revolute
+    )
+    robot_struct = robot.get_structure()
     print(robot_struct)
 
 
