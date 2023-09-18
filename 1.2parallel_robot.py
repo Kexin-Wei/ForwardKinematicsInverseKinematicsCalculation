@@ -43,18 +43,33 @@ def test_robot():
     robot.add_joint(joint1, robot.base)
     robot.add_joint(joint2, joint1)
     robot.add_joint(joint3, robot.base)
-    robot.plot()
-
     robot.add_parallel_joint(
         "joint3", "joint2", [joint3.xn, joint3.yn], JointType.revolute
     )
-    robot_struct = robot.get_structure()
-    print(robot_struct)
+
+    robot.plot()
+    print(robot.struct)
+    # robot.forward()
+
+
+def test_robot_kinematics():
+    joint1 = Joint2D(JointType.revolute, x=0, y=0, theta=90, l=1, name="joint1")
+    joint2 = Joint2D(JointType.revolute, x=0, y=1, theta=0, l=2, name="joint2")
+    joint3 = Joint2D(JointType.revolute, x=1, y=0, theta=90, l=1, name="joint3")
+
+    robot = Robot2D()
+    robot.add_joint(joint1, robot.base)
+    robot.add_joint(joint2, joint1)
+    robot.add_joint(joint3, robot.base)
+    robot.plot()
+    print(robot.struct)
+    robot.forward()
 
 
 if __name__ == "__main__":
     # test_robot_package()
     # test_node()
     test_robot()
+    # test_robot_kinematics()
 
     print("done")
