@@ -1,5 +1,5 @@
-import numpy as np
 import matplotlib.pyplot as plt
+
 from lib.robot.robot import KinematicChain, Joint2D, Robot2D, JointType
 
 
@@ -34,7 +34,19 @@ def test_node():
     print("s1", s1, "s2", s2, "s3", s3, "s4", s4)
 
 
-def test_robot():
+def get_2d_serial_robot():
+    joint1 = Joint2D(JointType.revolute, x=0, y=0, theta=90, l=1, name="joint1")
+    joint2 = Joint2D(JointType.revolute, x=0, y=1, theta=0, l=2, name="joint2")
+    joint3 = Joint2D(JointType.revolute, x=1, y=0, theta=90, l=1, name="joint3")
+
+    robot = Robot2D()
+    robot.add_joint(joint1, robot.base)
+    robot.add_joint(joint2, joint1)
+    robot.add_joint(joint3, robot.base)
+    return robot
+
+
+def get_2d_parallel_robot():
     joint1 = Joint2D(JointType.revolute, x=0, y=0, theta=90, l=1, name="joint1")
     joint2 = Joint2D(JointType.revolute, x=0, y=1, theta=0, l=2, name="joint2")
     joint3 = Joint2D(JointType.revolute, x=1, y=0, theta=90, l=1, name="joint3")
@@ -46,30 +58,36 @@ def test_robot():
     robot.add_parallel_joint(
         "joint3", "joint2", [joint3.xn, joint3.yn], JointType.revolute
     )
+    return robot
 
+
+def test_robot():
+    robot = get_2d_parallel_robot()
     robot.plot()
     print(robot.struct)
     # robot.forward()
 
 
 def test_robot_kinematics():
-    joint1 = Joint2D(JointType.revolute, x=0, y=0, theta=90, l=1, name="joint1")
-    joint2 = Joint2D(JointType.revolute, x=0, y=1, theta=0, l=2, name="joint2")
-    joint3 = Joint2D(JointType.revolute, x=1, y=0, theta=90, l=1, name="joint3")
+    robot1 = get_2d_serial_robot()
+    robot1.forward()
+    robot2 = get_2d_parallel_robot()
+    robot2.forward()
 
-    robot = Robot2D()
-    robot.add_joint(joint1, robot.base)
-    robot.add_joint(joint2, joint1)
-    robot.add_joint(joint3, robot.base)
-    robot.plot()
+
+def test_workspace():
+    robot = get_2d_serial_robot()
     print(robot.struct)
-    robot.forward()
+    print(robot.joint_range)
+    print(robot.joint_range_per_chain)
+    robot.plot_workspace()
 
 
 if __name__ == "__main__":
     # test_robot_package()
     # test_node()
-    test_robot()
+    # test_robot()
+    test_workspace()
     # test_robot_kinematics()
 
     print("done")

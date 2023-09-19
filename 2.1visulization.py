@@ -1,8 +1,10 @@
-from pathlib import Path
 from functools import partial
-from libs.folder import URDFFolderMg
+from pathlib import Path
+
 from yourdfpy import URDF
 from yourdfpy.viz import viewer_callback, generate_joint_limit_trajectory
+
+from lib.folder.basic import URDFFolderMg
 
 urdfFolderMg = URDFFolderMg(Path("data").joinpath("urdf_files"))
 urdfFolderMg.getURDFFromAllDir()
