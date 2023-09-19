@@ -6,8 +6,12 @@ using symbolic math package in Python  - SymPy - to calculate forward and invers
 - matlab code is also available in the repository, but requires symbolic math toolbox
 
 ## Fn 1.2: Forward Kinematics and Inverse Kinematics (Symbolic) Calculation in Joint Space
-
+- joint space definition #TODO
 ## Eg 1.2: Parrallel Robot
+- 2D Parrallel Robot
+- workspace visualization #TODO
+- inverse kinematics calculation #TODO
+- forward kinematics calculation #TODO
 
 # 2. Visulization
 using [yourdfpy](https://github.com/clemense/yourdfpy/tree/main) to load robot defined in [URDF format](http://wiki.ros.org/urdf/XML).
