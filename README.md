@@ -5,13 +5,15 @@ Robotics Demo
 using symbolic math package in Python  - SymPy - to calculate forward and inverse kinematics with defined dh tables
 - matlab code is also available in the repository, but requires symbolic math toolbox
 
-## Fn 1.2: Forward Kinematics and Inverse Kinematics (Symbolic) Calculation in Joint Space
-- joint space definition 
-## Eg 1.2: Parrallel Robot
+## Fn 1.2: Forward Kinematics and Inverse Kinematics Calculation with Dual Quaternion
+-  self-defined dual quaternion class to transfer dh table to dual quaternion and calculate forward and inverse kinematics
+
+## Eg 1.1: 3D Serial Robot
+## Eg 1.2: 2D Parrallel Robot
 - 2D Parrallel Robot
-- workspace visualization #TODO
+- workspace visualization (serial & parrallel #TODO)
 - inverse kinematics calculation #TODO
-- forward kinematics calculation #TODO
+- forward kinematics calculation (serial & parrallel#TODO)
 
 # 2. Visulization
 using [yourdfpy](https://github.com/clemense/yourdfpy/tree/main) to load robot defined in [URDF format](http://wiki.ros.org/urdf/XML).
