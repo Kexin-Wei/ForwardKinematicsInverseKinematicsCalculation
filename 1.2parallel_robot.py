@@ -82,6 +82,8 @@ def test_workspace():
     print(robot.joint_range_per_chain)
     robot.plot_workspace()
 
+def test_quaternion():
+    pass
 
 if __name__ == "__main__":
     # test_robot_package()
