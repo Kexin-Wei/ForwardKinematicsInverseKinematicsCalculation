@@ -9,7 +9,7 @@ using symbolic math package in Python  - SymPy - to calculate forward and invers
 - joint space definition 
 ## Eg 1.2: Parrallel Robot
 - 2D Parrallel Robot
-- workspace visualization #TODO
+- workspace visualization
 - inverse kinematics calculation #TODO
 - forward kinematics calculation #TODO
 
