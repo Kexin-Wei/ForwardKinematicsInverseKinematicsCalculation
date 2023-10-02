@@ -1,11 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import sys
-import os
+from test_utility import import_lib_module
 
-current_dir = os.path.dirname(os.path.realpath(__file__))
-parent_dir = os.path.dirname(current_dir)
-sys.path.append(parent_dir)
+import_lib_module()
 
 from lib.robot.robot import KinematicChain, Joint2D, Robot2D, JointType
 
@@ -92,9 +89,10 @@ def test_workspace():
 
 
 if __name__ == "__main__":
-    # test_robot_package()
+    test_robot_package()
     # test_node()
     # test_robot()
+    # TODO finish workspace code by using dual quaternion
     test_workspace()
     # test_robot_kinematics()
 
