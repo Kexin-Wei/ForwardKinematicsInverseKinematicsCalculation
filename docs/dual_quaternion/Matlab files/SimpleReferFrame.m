@@ -33,11 +33,11 @@ classdef SimpleReferFrame
             c.w=VQ(w);       
             
             c.q=q;
-            c.dq=DQFromQTvec(q,r);
+            c.dq=dqfromqtvec(q,r);
             
-            c.rdq=DualQuaternion([0,r,zeros(1,4)]);
+            c.rdq=dualquaternion([0,r,zeros(1,4)]);
             wdq_d=c.v.q+cross(c.r.q,c.w.q);
-            c.wdq=DualQuaternion([c.w.q.v,wdq_d.v]);
+            c.wdq=dualquaternion([c.w.q.v,wdq_d.v]);
         end
         
         %===================

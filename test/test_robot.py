@@ -4,7 +4,9 @@ from test_utility import import_lib_module
 
 import_lib_module()
 
-from lib.robot.robot import KinematicChain, Joint2D, Robot2D, JointType
+from lib.robot.robot import Robot2D
+from lib.robot.kinematic_chain import KinematicChain
+from lib.robot.joint import Joint2D, JointType
 
 
 def test_robot_package():
