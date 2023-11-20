@@ -7,6 +7,7 @@ using symbolic math package in Python  - SymPy - to calculate forward and invers
 
 ## Fn 1.2: Forward Kinematics and Inverse Kinematics Calculation with Dual Quaternion
 -  self-defined dual quaternion class to transfer dh table to dual quaternion and calculate forward and inverse kinematics
+- dual quaternion reference frame visualisation (#TODO)
 
 ## Eg 1.1: 3D Serial Robot
 ## Eg 1.2: 2D Parrallel Robot
