@@ -14,10 +14,13 @@ using symbolic math package in Python  - SymPy - to calculate forward and invers
 - forward kinematics calculation #TODO
 
 # 2. Visulization
+## Fn 2.1: URDF Visualization
 using [yourdfpy](https://github.com/clemense/yourdfpy/tree/main) to load robot defined in [URDF format](http://wiki.ros.org/urdf/XML).
 - "data/urdf_files": contains urdf files for different robots. [Source](https://github.com/ankurhanda/robot-assets)
-## Fn 2.1: draw robot in 2D/3D space
 based on yourdfpy, draw robot in 2D/3D space with matplotlib
+
+## Fn 2.2: STL/OBJ Visualization
+
 
 
 # 3. Control Method
