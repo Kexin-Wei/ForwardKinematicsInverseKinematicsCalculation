@@ -1,27 +1,36 @@
 Robotics Demo
 ===
-# 1. Kinematics (and Dynamics)
+# 1. Kinematics
 ## Fn 1.1: Forward Kinematics and Inverse Kinematics (Symbolic) Calculation using DH Table
-using symbolic math package in Python  - SymPy - to calculate forward and inverse kinematics with defined dh tables
+using symbolic math package in Python  - SymPy - to calculate forward and inverse kinematics with defined dh tables, see `1.1Kinematics_SymPy_DH.ipynb`
 - matlab code is also available in the repository, but requires symbolic math toolbox
 
 ## Fn 1.2: Forward Kinematics and Inverse Kinematics Calculation with Dual Quaternion
--  self-defined dual quaternion class to transfer dh table to dual quaternion and calculate forward and inverse kinematics
-- dual quaternion reference frame visualisation (#TODO)
+-  self-defined dual quaternion class to transfer dh table to dual quaternion and calculate forward and inverse kinematics, see `1.2Kinematics_Robot.ipynb`
+
 
 ## Eg 1.1: 3D Serial Robot
+using example from [this website](https://motion.cs.illinois.edu/RoboticSystems/InverseKinematics.html).
+- #TODO test quaternion and dual quaternion with serial robot
+- 2D serial robot with 3 links and 2 joints
+- workspace visualization (serial #TODO)
+- inverse kinematics calculation #TODO
+- forward kinematics calculation (serial #TODO)
+- 3D serial robot with 3 links and 3 joints
+
 ## Eg 1.2: 2D Parrallel Robot
 - 2D Parrallel Robot
-- workspace visualization (serial & parrallel #TODO)
-- inverse kinematics calculation #TODO
-- forward kinematics calculation (serial & parrallel#TODO)
+- workspace visualization ( parrallel #TODO)
+- inverse kinematics calculation 
+- forward kinematics calculation ( parrallel#TODO)
 
 # 2. Visulization
-using [yourdfpy](https://github.com/clemense/yourdfpy/tree/main) to load robot defined in [URDF format](http://wiki.ros.org/urdf/XML).
+<!-- using [yourdfpy](https://github.com/clemense/yourdfpy/tree/main) to load robot defined in [URDF format](http://wiki.ros.org/urdf/XML).
 - "data/urdf_files": contains urdf files for different robots. [Source](https://github.com/ankurhanda/robot-assets)
 ## Fn 2.1: draw robot in 2D/3D space
-based on yourdfpy, draw robot in 2D/3D space with matplotlib
-
+based on yourdfpy, draw robot in 2D/3D space with matplotlib -->
+dual quaternion reference frame visualisation (#TODO)
+see implementations in `1.2Kinematics_Robot.ipynb`
 
 # 3. Control Method
 ## Eg 3.1: Kalman Filter in Motion Tracking
