@@ -1,6 +1,12 @@
+import numpy as np
 import matplotlib.pyplot as plt
+from test_utility import import_lib_module
 
-from lib.robot.robot import KinematicChain, Joint2D, Robot2D, JointType
+import_lib_module()
+
+from lib.robot.robot import Robot2D
+from lib.robot.kinematic_chain import KinematicChain
+from lib.robot.joint import Joint2D, JointType
 
 
 def test_robot_package():
@@ -13,9 +19,10 @@ def test_robot_package():
 
     joint3 = Joint2D(JointType.revolute, x=0, y=1, theta=90, l=1, name="joint3")
     joint4 = Joint2D(JointType.revolute, x=0, y=2, theta=45, l=1, name="joint4")
-    robot = Robot2D([joint3, joint4])
-    robot._plot(ax)
-    plt.show()
+    robot = Robot2D()
+    robot.add_joint(joint3, robot.base)
+    robot.add_joint(joint4, joint3)
+    robot.plot(ax=ax)
 
 
 def test_node():
@@ -84,9 +91,10 @@ def test_workspace():
 
 
 if __name__ == "__main__":
-    # test_robot_package()
+    test_robot_package()
     # test_node()
     # test_robot()
+    # TODO finish workspace code by using dual quaternion
     test_workspace()
     # test_robot_kinematics()
 
