@@ -1,28 +1,33 @@
 Robotics Demo
 ===
-# 1. Kinematics
-## Fn 1.1: Forward Kinematics and Inverse Kinematics (Symbolic) Calculation using DH Table
+# 1. Kinematics - Forward and Inverse Kinematics
+## Fn 1.1: Symbolic Calculation using DH Table
 using symbolic math package in Python  - SymPy - to calculate forward and inverse kinematics with defined dh tables, see `1.1Kinematics_SymPy_DH.ipynb`
 - matlab code is also available in the repository, but requires symbolic math toolbox
 
-## Fn 1.2: Forward Kinematics and Inverse Kinematics Calculation with Dual Quaternion
+## Fn 1.2: Dual Quaternion Representation
 -  self-defined dual quaternion class to transfer dh table to dual quaternion and calculate forward and inverse kinematics, see `1.2Kinematics_Robot.ipynb`
 
 
-## Eg 1.1: 3D Serial Robot
+### Eg 1.1: 2D Serial Robot
 using example from [this website](https://motion.cs.illinois.edu/RoboticSystems/InverseKinematics.html).
-- #TODO test quaternion and dual quaternion with serial robot
-- 2D serial robot with 3 links and 2 joints
+- 2D serial robot with 2 links and 2 joints
 - workspace visualization (serial #TODO)
+
+### Eg 1.2: 3D Serial Robot
+
+- #TODO test quaternion and dual quaternion with serial robot
 - inverse kinematics calculation #TODO
 - forward kinematics calculation (serial #TODO)
 - 3D serial robot with 3 links and 3 joints
 
-## Eg 1.2: 2D Parrallel Robot
+### Eg 1.3: 2D Parrallel Robot
 - 2D Parrallel Robot
 - workspace visualization ( parrallel #TODO)
 - inverse kinematics calculation 
 - forward kinematics calculation ( parrallel#TODO)
+
+### Eg 1.4: 3D Parrallel Robot
 
 # 2. Visulization
 <!-- using [yourdfpy](https://github.com/clemense/yourdfpy/tree/main) to load robot defined in [URDF format](http://wiki.ros.org/urdf/XML).
