@@ -1,2 +1,6 @@
-*.code-workspace
 __pycache__/
+.idea/
+.vscode/
+.ipynb_checkpoints/
+.DS_Store
+*.pyc
