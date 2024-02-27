@@ -30,10 +30,12 @@ using example from [this website](https://motion.cs.illinois.edu/RoboticSystems/
 ### Eg 1.4: 3D Parrallel Robot
 
 # 2. Visulization
-<!-- using [yourdfpy](https://github.com/clemense/yourdfpy/tree/main) to load robot defined in [URDF format](http://wiki.ros.org/urdf/XML).
+## Fn 2.1: URDF Visualization
+using [yourdfpy](https://github.com/clemense/yourdfpy/tree/main) to load robot defined in [URDF format](http://wiki.ros.org/urdf/XML).
 - "data/urdf_files": contains urdf files for different robots. [Source](https://github.com/ankurhanda/robot-assets)
-## Fn 2.1: draw robot in 2D/3D space
-based on yourdfpy, draw robot in 2D/3D space with matplotlib -->
+based on yourdfpy, draw robot in 2D/3D space with matplotlib
+
+## Fn 2.2: STL/OBJ Visualization
 dual quaternion reference frame visualisation (#TODO)
 see implementations in `1.2Kinematics_Robot.ipynb`
 
