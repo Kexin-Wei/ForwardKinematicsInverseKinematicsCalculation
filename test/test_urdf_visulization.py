@@ -6,7 +6,7 @@ from yourdfpy.viz import viewer_callback, generate_joint_limit_trajectory
 
 from lib.folder.basic import URDFFolderMg
 
-urdfFolderMg = URDFFolderMg(Path("data").joinpath("urdf_files"))
+urdfFolderMg = URDFFolderMg(Path("../data").joinpath("urdf_files"))
 urdfFolderMg.getURDFFromAllDir()
 urdfFolderMg.printURDFFiles()
 
