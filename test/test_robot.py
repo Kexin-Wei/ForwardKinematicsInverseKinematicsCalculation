@@ -6,7 +6,7 @@ import_lib_module()
 
 from lib.robot.robot import Robot2D
 from lib.robot.kinematic_chain import KinematicChain, Node
-from lib.robot.joint import Joint2D, JointType
+from lib.robot.joint import Joint2D, JointType, RadOrDeg
 
 
 def test_2d_serial_robot():
@@ -16,16 +16,21 @@ def test_2d_serial_robot():
     robot.plot()
 
 
-def test_robot_package():
+def test_robot_1():
     fig, ax = plt.subplots()
     joint1 = Joint2D(JointType.REVOLUTE, x=1, y=1, theta=90, l=1, name="joint1")
     joint1.plot(ax)
 
     ax.set_aspect("equal")
     ax.grid()
+    # plt.show()
 
-    joint3 = Joint2D(JointType.REVOLUTE, x=0, y=1, theta=90, l=1, name="joint3")
-    joint4 = Joint2D(JointType.REVOLUTE, x=0, y=2, theta=45, l=1, name="joint4")
+    joint3 = Joint2D(
+        JointType.REVOLUTE, x=0, y=1, theta=90, rad=RadOrDeg.DEGREE, l=1, name="joint3"
+    )
+    joint4 = Joint2D(
+        JointType.REVOLUTE, x=0, y=2, theta=45, rad=RadOrDeg.DEGREE, l=1, name="joint4"
+    )
     robot = Robot2D()
     robot.add_joint(joint3, robot.base)
     robot.add_joint(joint4, joint3)
@@ -82,7 +87,7 @@ def get_2d_parallel_robot():
     return robot
 
 
-def test_robot():
+def test_robot_2():
     robot = get_2d_parallel_robot()
     robot.plot()
     print(robot.struct)
@@ -105,10 +110,10 @@ def test_workspace():
 
 
 if __name__ == "__main__":
-    # test_2d_serial_robot()
-    test_robot_package()
     # test_node()
-    # test_robot()
+    # test_2d_serial_robot()
+    test_robot_1()
+    test_robot_2()
     # TODO finish workspace code by using dual quaternion
     # test_workspace()
     # test_robot_kinematics()
