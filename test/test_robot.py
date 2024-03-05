@@ -9,14 +9,44 @@ from lib.robot.kinematic_chain import KinematicChain, Node
 from lib.robot.joint import Joint2D, JointType, RadOrDeg
 
 
+def get_2d_serial_robot():
+    joint1 = Joint2D(JointType.REVOLUTE, x=0, y=0, theta=90, l=1, name="joint1")
+    joint2 = Joint2D(JointType.REVOLUTE, x=0, y=1, theta=0, l=2, name="joint2")
+    joint3 = Joint2D(JointType.REVOLUTE, x=1, y=0, theta=90, l=1, name="joint3")
+
+    robot = Robot2D()
+    robot.add_joint(joint1, robot.base)
+    robot.add_joint(joint2, joint1)
+    robot.add_joint(joint3, robot.base)
+
+    return robot
+
+
+def get_2d_parallel_robot():
+    joint1 = Joint2D(JointType.REVOLUTE, x=0, y=0, theta=90, l=1, name="joint1")
+    joint2 = Joint2D(JointType.REVOLUTE, x=0, y=1, theta=0, l=2, name="joint2")
+    joint3 = Joint2D(JointType.REVOLUTE, x=1, y=0, theta=90, l=1, name="joint3")
+
+    robot = Robot2D()
+    robot.add_joint(joint1, robot.base)
+    robot.add_joint(joint2, joint1)
+    robot.add_joint(joint3, robot.base)
+    robot.add_parallel_joint_connection(
+        joint3, joint2, [joint3.xn, joint3.yn], JointType.REVOLUTE
+    )
+    return robot
+
+
 def test_2d_serial_robot():
-    joint1 = Joint2D(j_type=JointType.REVOLUTE, x=0, y=0, theta=0, l=2, name="joint1")
+    joint1 = Joint2D(
+        j_type=JointType.REVOLUTE, x=0, y=0, theta=0, l=2, name="joint1"
+    )
     joint2 = joint1.append_joint(JointType.REVOLUTE, 0, 1, "joint2")
     robot = Robot2D.from_joint_list([joint1, joint2])
     robot.plot()
 
 
-def test_robot_1():
+def test_robot_and_joint_share_plot():
     fig, ax = plt.subplots()
     joint1 = Joint2D(JointType.REVOLUTE, x=1, y=1, theta=90, l=1, name="joint1")
     joint1.plot(ax)
@@ -25,12 +55,8 @@ def test_robot_1():
     ax.grid()
     # plt.show()
 
-    joint3 = Joint2D(
-        JointType.REVOLUTE, x=0, y=1, theta=90, rad=RadOrDeg.DEGREE, l=1, name="joint3"
-    )
-    joint4 = Joint2D(
-        JointType.REVOLUTE, x=0, y=2, theta=45, rad=RadOrDeg.DEGREE, l=1, name="joint4"
-    )
+    joint3 = Joint2D(JointType.REVOLUTE, x=0, y=1, theta=90, l=1, name="joint3")
+    joint4 = Joint2D(JointType.REVOLUTE, x=0, y=2, theta=45, l=1, name="joint4")
     robot = Robot2D()
     robot.add_joint(joint3, robot.base)
     robot.add_joint(joint4, joint3)
@@ -60,34 +86,7 @@ def test_node():
     print("s1", s1, "s2", s2, "s3", s3, "s4", s4)
 
 
-def get_2d_serial_robot():
-    joint1 = Joint2D(JointType.REVOLUTE, x=0, y=0, theta=90, l=1, name="joint1")
-    joint2 = Joint2D(JointType.REVOLUTE, x=0, y=1, theta=0, l=2, name="joint2")
-    joint3 = Joint2D(JointType.REVOLUTE, x=1, y=0, theta=90, l=1, name="joint3")
-
-    robot = Robot2D()
-    robot.add_joint(joint1, robot.base)
-    robot.add_joint(joint2, joint1)
-    robot.add_joint(joint3, robot.base)
-    return robot
-
-
-def get_2d_parallel_robot():
-    joint1 = Joint2D(JointType.REVOLUTE, x=0, y=0, theta=90, l=1, name="joint1")
-    joint2 = Joint2D(JointType.REVOLUTE, x=0, y=1, theta=0, l=2, name="joint2")
-    joint3 = Joint2D(JointType.REVOLUTE, x=1, y=0, theta=90, l=1, name="joint3")
-
-    robot = Robot2D()
-    robot.add_joint(joint1, robot.base)
-    robot.add_joint(joint2, joint1)
-    robot.add_joint(joint3, robot.base)
-    robot.add_parallel_joint(
-        "joint3", "joint2", [joint3.xn, joint3.yn], JointType.REVOLUTE
-    )
-    return robot
-
-
-def test_robot_2():
+def test_2d_parallel_robot():
     robot = get_2d_parallel_robot()
     robot.plot()
     print(robot.struct)
@@ -110,12 +109,11 @@ def test_workspace():
 
 
 if __name__ == "__main__":
-    # test_node()
-    # test_2d_serial_robot()
-    test_robot_1()
-    test_robot_2()
-    # TODO finish workspace code by using dual quaternion
-    # test_workspace()
-    # test_robot_kinematics()
+    test_node()
+    test_2d_serial_robot()
+    test_robot_and_joint_share_plot()
+    test_2d_parallel_robot()
+    test_workspace()
+    test_robot_kinematics()
 
     print("done")
