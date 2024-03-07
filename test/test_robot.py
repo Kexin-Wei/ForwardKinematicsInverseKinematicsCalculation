@@ -4,9 +4,9 @@ from test_utility import import_lib_module
 
 import_lib_module()
 
-from lib.robot.robot import Robot2D
+from lib.robot.robot import Robot2D, EndEffector2D
 from lib.robot.kinematic_chain import KinematicChain, Node
-from lib.robot.joint import Joint2D, JointType, RadOrDeg
+from lib.robot.joint import Joint2D, JointType
 
 
 def get_2d_serial_robot():
@@ -100,20 +100,29 @@ def test_robot_kinematics():
     robot2.forward()
 
 
+def test_end_effector():
+    ee = EndEffector2D(90)
+    ee.plot()
+    plt.show()
+
+
 def test_workspace():
     robot = get_2d_serial_robot()
     print(robot.struct)
     print(robot.joint_range)
-    print(robot.get_joint_range_per_chain)
+    for chain in robot.struct:
+        print(chain)
+        print(robot.get_joint_range_per_chain(chain))
     robot.plot_workspace()
 
 
 if __name__ == "__main__":
-    test_node()
-    test_2d_serial_robot()
-    test_robot_and_joint_share_plot()
-    test_2d_parallel_robot()
-    test_workspace()
-    test_robot_kinematics()
+    # test_node()
+    # test_2d_serial_robot()
+    # test_robot_and_joint_share_plot()
+    # test_2d_parallel_robot()
+    test_end_effector()
+    # test_workspace()
+    # test_robot_kinematics()
 
     print("done")

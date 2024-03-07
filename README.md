@@ -19,6 +19,8 @@ using example from [this website](https://motion.cs.illinois.edu/RoboticSystems/
 - 2D serial robot with 2 links and 2 joints
 - workspace visualization (serial #TODO)
     - pass test_robot.py all tests #TODO
+      - end effector visualization 
+      - workspace visualization #TODO
 
 ### Eg 1.2: 3D Serial Robot
 
